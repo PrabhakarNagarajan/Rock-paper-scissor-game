@@ -5,8 +5,6 @@ const scissor = document.getElementById("scissor");
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
-const win = "You win ";
-const lose = "You Lose";
 const tie = "Match tie";
 
 rock.addEventListener("click", () => {
@@ -80,12 +78,13 @@ function updateScore() {
   function winner() {
     if (playerScore >= 5) {
       alert("Player wins");
+      document.location.reload();
     } else if (computerScore >= 5) {
       alert("computer wins");
+      document.location.reload();
     }
   }
+
   winner();
-  // scoreTie.textContent = `${}`;
 }
-const updater = updateScore();
-updater();
+updateScore();

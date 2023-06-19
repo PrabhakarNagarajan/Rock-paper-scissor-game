@@ -1,6 +1,11 @@
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissor = document.getElementById("scissor");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const playersChoice = document.getElementById("players-choice");
+const computerChoice = document.getElementById("computer-choice");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -10,6 +15,8 @@ const tie = "Match tie";
 rock.addEventListener("click", () => {
   playerSelection = "rock";
   computerSelection = getComputerChoice();
+  playersChoice.textContent = `player selected ${playerSelection}`;
+  computerChoice.textContent = `Computer selected ${computerSelection}`;
   console.log(playerSelection);
   playRound(playerSelection, computerSelection);
   updateScore();
@@ -17,6 +24,8 @@ rock.addEventListener("click", () => {
 paper.addEventListener("click", () => {
   playerSelection = "paper";
   computerSelection = getComputerChoice();
+  playersChoice.textContent = `player selected ${playerSelection}`;
+  computerChoice.textContent = `Computer selected ${computerSelection}`;
   console.log(playerSelection);
   playRound(playerSelection, computerSelection);
   updateScore();
@@ -24,6 +33,8 @@ paper.addEventListener("click", () => {
 scissor.addEventListener("click", () => {
   playerSelection = "scissor";
   computerSelection = getComputerChoice();
+  playersChoice.textContent = `player selected ${playerSelection}`;
+  computerChoice.textContent = `Computer selected ${computerSelection}`;
   console.log(playerSelection);
   playRound(playerSelection, computerSelection);
   updateScore();
@@ -60,8 +71,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {}
-game();
+// function game() {}
+// game();
 // console.log(game);
 
 // playRound(playerSelection, computerSelection);
@@ -77,9 +88,11 @@ function updateScore() {
 
   function winner() {
     if (playerScore >= 5) {
+      // openModal();
       alert("Player wins");
       document.location.reload();
     } else if (computerScore >= 5) {
+      // openModal();
       alert("computer wins");
       document.location.reload();
     }
@@ -88,3 +101,17 @@ function updateScore() {
   winner();
 }
 updateScore();
+
+// const openModal = function () {
+//   // console.log('Button clicked');
+//   modal.classList.remove("hidden");
+//   overlay.classList.remove("hidden");
+// };
+
+// const closeModal = function () {
+//   modal.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// };
+
+// btnCloseModal.addEventListener("click", closeModal);
+// overlay.addEventListener("click", closeModal);
